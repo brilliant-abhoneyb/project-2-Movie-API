@@ -1,0 +1,176 @@
+<div class="movies">
+    <div class="container">
+        <app-header></app-header>
+        <main>
+            <!-- BANNER -->
+            <section class="banner">
+                <div class="banner__card">
+                    <img src="./assets/banner.svg" class="banner__image">
+                    <div class="banner__card-content">
+                        <div class="banner__card-info">
+                            <div class="banner__card-info-item"><i class="fa-solid fa-film"></i>Documentary</div>
+                            <div class="banner__card-info-item"><i class="fa-solid fa-calendar-days"></i>2020</div>
+                            <div class="banner__card-info-item"><i class="fa-solid fa-clock"></i>2h 11m</div>
+                            <div class="banner__card-info-item-quality">4K</div>
+                        </div>
+                        <h2 class="banner__card-title">BLACKPINK: Light Up the Sky</h2>
+                    </div>
+                </div>
+            </section>
+            <!-- FILTER LINE — MOVIE LIST-->
+            <section class="movie__list">
+                <div class="filter-bar">
+                    <div class="filter-dropdowns">
+                        <select name="genre" class="filter-dropdown">
+                            <option value="all genres">All genres</option>
+                            <option value="action">Action</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="animation">Animation</option>
+                            <option value="biography">Science</option>
+                            <option value="biography">Biography</option>
+                        </select>
+                        <select name="year" class="filter-dropdown">
+                            <option value="all years">All years</option>
+                            <option value="2022">2022</option>
+                            <option value="2020-2021">2021</option>
+                            <option value="2010-2019">2020</option>
+                            <option value="2000-2009">2019</option>
+                            <option value="1980-1999">2018</option>
+                        </select>
+                    </div>
+                
+                    <div class="filter-radios">
+                        <input type="radio" name="grade" id="featured" checked>
+                        <label for="featured">Featured</label>
+        
+                        <input type="radio" name="grade" id="popular">
+                        <label for="popular">Popular</label>
+            
+                        <input type="radio" name="grade" id="newest">
+                        <label for="newest">Newest</label>
+                        <div class="filter__radio-checked"></div>
+                    </div>
+                </div>
+
+                <!-- MOVIES LIST -->
+                <div class="movies__grid">
+                    @for (movie of movies; track movie.id){
+                        <div class="movie__card" (click)="onMovieCLick(movie)">
+                            <!-- ON CLICK EVENT ROUTE TO PAGE -->
+                            <div class="movie__card-head">
+                                <img [src]="getFullImageUrl(movie.poster_path)" class="movie__card-image" >
+                                <div  class="movie__card-overlay">  
+                                    <div class="movie__card-actions movie__card-actions-bookmark"><i class="fa-regular fa-bookmark"></i></div>
+                                    <div class="movie__card-actions movie__card-actions-rating"><i class="fa-regular fa-star"></i><span class="movie__card-actions__rating-value">{{movie.vote_average}}</span></div>
+                                    <div class="movie__card-actions movie__card-actions-play"><i class="fa-solid fa-play"></i></div>
+                                </div>
+                            </div>
+                            <div class="movie__card-body">
+                                <h3 class="movie__card-title">{{movie.title}}</h3>
+                                <div class="movie__card-info">
+                                    <span class="genre"></span>
+                                    <span class="year">{{movie.release_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+
+            <!-- CATEGORY -->
+            <section class="category" id="category">
+                <h2 class="category__heading">Category</h2>
+                <div class="category__grid">
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Action</div>
+                        <div class="category__card-info category__card-info__total">100</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Comedy</div>
+                        <div class="category__card-info category__card-info__total">50</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Thriller</div>
+                        <div class="category__card-info category__card-info__total">20</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Horror</div>
+                        <div class="category__card-info category__card-info__total">80</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Adventure</div>
+                        <div class="category__card-info category__card-info__total">100</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Animated</div>
+                        <div class="category__card-info category__card-info__total">50</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Crime</div>
+                        <div class="category__card-info category__card-info__total">20</div>
+                    </div>
+                    <div class="category__card">
+                        <img src="./assets/banner.jpg" class="category__card-image">
+                        <div class="category__card-info category__card-info__name">Scientific</div>
+                        <div class="category__card-info category__card-info__total">80</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <img src="./assets/logo.svg" href="/movie.component.html" class="footer__logo"> 
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="footer__social"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="footer__social"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="footer__social"><i class="fa-brands fa-youtube"></i></a>
+                    </div>  
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__link-heading">Cinema</h4>
+                    <h4 class="footer__link-heading">Watch</h4>
+                    <h4 class="footer__link-heading"></h4>
+                    <h4 class="footer__link-heading">Help</h4>
+    
+                    <a href="#" class="footer__link">About us</a>
+                    <a href="#" class="footer__link">Live TV</a>
+                    <a href="#" class="footer__link">TV Shows</a>
+                    <a href="#" class="footer__link">Account & Billing</a>
+    
+                    <a href="#" class="footer__link">Pricing plans</a>
+                    <a href="#" class="footer__link">Live News</a>
+                    <a href="#" class="footer__link">Movies</a>
+                    <a href="#" class="footer__link">Plans & Pricing</a>
+    
+                    <a href="#" class="footer__link">Contacts</a>
+                    <a href="#" class="footer__link">Live Sports</a>
+                    <a href="#" class="footer__link">Cartoons</a>
+                    <a href="#" class="footer__link">Supported devices</a>
+    
+                    <a href="#" class="footer__link">My Profile</a>
+                    <a href="#" class="footer__link">Streaming Library</a>
+                    <a href="#" class="footer__link">Collections</a>
+                    <a href="#" class="footer__link">Accessibility</a>
+              </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="footer__copyright-text"><p>&copy; copyright</p></div>  
+                <div class="footer__wrapper">
+                    <a href="#" class="footer__link">Privacy policy</a>
+                    <a href="#" class="footer__link">Terms and conditions</a>
+                </div>
+            </div>
+        </footer>
+        <script src="./src/main.js"></script>
+    </div>
+</div>

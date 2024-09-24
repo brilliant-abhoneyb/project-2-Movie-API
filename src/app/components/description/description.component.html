@@ -1,0 +1,35 @@
+<div class="description">
+    <div class="container">
+        <app-header></app-header>
+        <div class="descriptions" *ngIf="description">
+            <div class="descriptions__content">
+                <div class="container descriptions__container">
+                    <div class="descriptions__content-banner">
+                        <img [src]="description.poster_path | poster "  class="descriptions__image">
+                    </div>
+        
+                    <div class="descriptions__content-text">
+                        <div class="descriptions__content-text-header">
+                            <h3 class="description__title">{{description.title}}</h3>
+                            <div class="description__rating">
+                                <span class="description__rating-icon"><i class="fas fa-star"></i></span>
+                                <span class="description__rating-value">{{description.vote_average | number:'1.1-2'}}</span>
+                            </div>
+                        </div>
+                        <div class="descriptions__content-text-body">
+                            <h3 class="description__overtitle">Description:</h3>
+                            <div class="description__data">
+                                <p *ngIf="description.overview">{{description.overview}}</p>
+                                <p *ngIf="!description.overview">No hay sinopsis</p>
+                                <p class="description__text-info">Premiere date: {{description.release_date | date:'dd/MM/yyyy'}} </p>
+                            </div>
+                            <div class="description__button-location" >
+                                <a href="https://www.youtube.com/"><button class="description__button" (click)="regresar()">More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

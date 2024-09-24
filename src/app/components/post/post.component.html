@@ -1,0 +1,25 @@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(post of posts; track post.id){
+            <tr>
+                <th>{{ post.id }}</th>
+                <td>
+                    {{ post.title }}
+                </td> 
+                <td>
+                    {{ post.body }}
+                </td>
+            </tr>
+        }
+        @empty{
+            <h3 class="post__option-absent">No post</h3>
+        } 
+    </tbody>
+</table>

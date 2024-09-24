@@ -1,0 +1,29 @@
+<div class="movies">
+    <div class="container">
+        <div class="movies__grid">
+            <div class="movie__card"  *ngFor="let movie of movies" (click)="onMovieCLick(movie)">
+                <!-- ON CLICK EVENT ROUTE TO PAGE -->
+
+                <div class="movie__card-head">
+                    <img [src]="movie.poster_path | poster" class="movie__card-image">
+                    <div  class="movie__card-overlay" >  
+                        <div class="movie__card-actions movie__card-actions-bookmark"><i class="fa-regular fa-bookmark"></i></div>
+                        
+                        <div class="movie__card-actions movie__card-actions-rating" *ngIf="movie.vote_average">
+                            <i class="fa-regular fa-star"></i>
+                            <span class="movie__card-actions__rating-value">{{movie.vote_average | number:'1.1-2'}}</span></div>
+                        
+                        <div class="movie__card-actions movie__card-actions-play"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                </div>
+
+                <div class="movie__card-body">
+                    <h3 class="movie__card-title">{{movie.title}}</h3>
+                    <div class="movie__card-info">
+                        <span class="genre"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

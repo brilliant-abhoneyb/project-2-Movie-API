@@ -1,0 +1,11 @@
+<div class="search">
+    <div class="container">
+        <h1 class="search__title">Found:</h1>
+        <div class="search__content">
+            <div class="search__content-cards">
+                <app-description-poster [movies]="movies" *ngIf="movies.length > 0"></app-description-poster>
+                <h3 class="search__content-cards__absent" *ngIf="noMovie"><strong>{{noMovie}}</strong></h3>
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,22 @@
+.search{
+    background: var(--background);
+    margin: 40px;
+}
+
+.search__title{
+    margin-left: 52px;
+    margin-bottom: 20px;
+    font-size: 35px;
+    color: black;
+    padding: 12px;
+    border: 1px solid rgb(216 216 216);
+    border-radius: 15px;
+    background: hsl(0, 3%, 88%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.search__content-cards__absent{
+    margin: 80px 55px;
+    font-size: 19px;
+}

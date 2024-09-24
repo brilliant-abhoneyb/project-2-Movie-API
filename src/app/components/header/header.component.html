@@ -1,0 +1,27 @@
+<header class="movies__header">
+    <div class="movies__navbar">
+        <img src="./assets/logo.svg" class="movies__navbar-logo" (click)="goToPart('home')"> 
+
+        <nav class="movies__navbar-items">
+            <a class="navbar__link" (click)="goToPart('home')">Home</a>
+            <a class="navbar__link" (click)="goToPart('category')">Category</a> 
+        </nav>
+
+        <div class="navbar__actions">
+            <form class="navbar__form">
+                <input #txtSearch type="search" (keyup.enter)="searchPage($event, txtSearch.value)" placeholder="Enter name of preferred cinema" class="navbar__form-search">
+                <button class="navbar__form-btn" type="submit" (click)="searchPage($event, txtSearch.value)"><img src="./assets/search.svg" class="navbar__icon-search"></button>
+            </form>
+
+            <button class="navbar__button-mode" (click) = "toggleMode()">
+                <span class="navbar__button-mode__option" checked><i class="fa-regular fa-moon"></i></span>
+                <span class="navbar__button-mode__option"><i class="fa-regular fa-sun"></i></span>
+                <div class="navbar__button-checked"></div>
+            </button>
+
+            <div class="navbar__link-exit" (click)="signOut()">
+                <a class="navbar__link navbar__actions-exit">Sign out<img src="./assets/exit.svg" class="navbar__icon"></a>
+            </div>
+        </div>
+    </div>
+</header>
